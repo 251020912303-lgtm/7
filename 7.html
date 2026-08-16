@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS - Báo tiếng Việt nhiều người xem nhất</title>
+    <style>
+        /* CSS Cơ bản & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            color: #9f224e;
+        }
+
+        /* Container căn giữa trang */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header (Logo & Tiện ích) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .logo-area h1 {
+            color: #9f224e; /* Màu đỏ tương tự báo VNExpress */
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .logo-area p {
+            font-size: 12px;
+            color: #777;
+        }
+        .header-utils {
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Thanh Điều hướng (Navigation) */
+        nav {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            overflow-x: auto; /* Cuộn ngang trên mobile */
+            white-space: nowrap;
+        }
+        nav ul li a {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* Khu vực Nội dung chính */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Cột Trái: Danh sách bài báo */
+        .articles-col {
+            flex: 7;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Card Bài báo */
+        .news-item {
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .news-item:hover {
+            background-color: #fcfcfc;
+        }
+        .news-item img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .news-content h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .news-content p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* Bài báo nổi bật (To nhất) */
+        .featured-item {
+            flex-direction: column;
+        }
+        .featured-item img {
+            width: 100%;
+            height: 350px;
+        }
+        .featured-item h2 {
+            font-size: 28px;
+        }
+
+        /* Cột Phải: Sidebar hiển thị thông tin khi Hover */
+        .sidebar-col {
+            flex: 3;
+        }
+        .info-panel {
+            position: sticky;
+            top: 20px;
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            border-top: 3px solid #9f224e;
+            padding: 20px;
+            border-radius: 4px;
+            min-height: 250px;
+        }
+        .info-panel h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .info-panel p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* CSS Responsive cho Điện thoại & Máy tính bảng */
+        @media (max-width: 800px) {
+            .main-content {
+                flex-direction: column; /* Đẩy thanh sidebar xuống dưới */
+            }
+            .news-item {
+                flex-direction: column;
+            }
+            .news-item img {
+                width: 100%;
+                height: auto;
+            }
+            .info-panel {
+                position: static; /* Bỏ ghim trên mobile */
+                margin-bottom: 30px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo-area">
+                <h1>NEWS</h1>
+                <p>Báo tiếng Việt nhiều người xem nhất</p>
+            </div>
+            <div class="header-utils">
+                <span>Mới nhất</span>
+                <span>Tin theo khu vực</span>
+                <span>Đăng nhập</span>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Thời sự</a></li>
+                <li><a href="#">Thế giới</a></li>
+                <li><a href="#">Kinh doanh</a></li>
+                <li><a href="#">Khoa học công nghệ</a></li>
+                <li><a href="#">Giải trí</a></li>
+                <li><a href="#">Thể thao</a></li>
+            </ul>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- CỘT BÀI BÁO -->
+            <div class="articles-col">
+                <!-- Bài nổi bật -->
+                <article class="news-item featured-item" data-extra="<strong>Chi tiết trận đấu:</strong><br><br>Cầu thủ Xuân Son và Đình Bắc đã có màn thể hiện xuất sắc. Tỷ lệ kiểm soát bóng của Việt Nam đạt 65%. Huấn luyện viên Kim Sang-sik đã áp dụng chiến thuật tấn công pressing toàn mặt sân ngay từ những phút đầu tiên, mang lại hiệu quả rõ rệt.">
+                    <img src="1dv.png" alt="Bóng đá">
+                    <div class="news-content">
+                        <h2>Malaysia 0-0 Việt Nam (H1): Xuân Son, Đình Bắc đá chính</h2>
+                        <p>Thầy trò Kim Sang-sik được kỳ vọng nối dài mạch 22 trận bất bại, khi làm khách trên sân Kuala Lumpur ở lượt đi bán kết ASEAN Cup 2026.</p>
+                    </div>
+                </article>
+
+                <!-- Bài viết 2 -->
+                <article class="news-item" data-extra="<strong>Nguyên nhân sự cố:</strong><br><br>Chiếc Boeing 787-9 gặp trục trặc ở hệ thống thủy lực bánh đáp. Phi công đã quyết định xả nhiên liệu trên không trung để giảm trọng lượng trước khi hạ cánh khẩn cấp xuống Munich an toàn. Toàn bộ 290 hành khách đều ổn định.">
+                    <img src="1mo.png" alt="Máy bay">
+                    <div class="news-content">
+                        <h2>Hai giờ căng thẳng trên chiếc Boeing 787-9 phải quay đầu lại Munich</h2>
+                        <p>Chuyến bay dự kiến hạ cánh lúc 9h sáng nhưng đã phải xin quay đầu hạ cánh khẩn cấp do lỗi kỹ thuật.</p>
+                    </div>
+                </article>
+
+                <!-- Bài viết 3 -->
+                <article class="news-item" data-extra="<strong>Quy định pháp luật:</strong><br><br>Theo Bộ Luật Hình sự, hành vi thả động vật ngoại lai xâm hại có thể bị phạt tiền từ 50 đến 100 triệu đồng. Nếu gây thiệt hại lớn cho môi trường sinh thái, cá nhân có thể đối mặt với mức án lên đến 3 năm tù giam.">
+                    <img src="1dv.png" alt="Phóng sinh">
+                    <div class="news-content">
+                        <h2>Phóng sinh sai cách có thể bị xử lý hình sự</h2>
+                        <p>Hành vi thả sinh vật ngoại lai hoặc thả không đúng quy định không chỉ phá hoại môi trường mà còn vi phạm pháp luật nghiêm trọng.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CỘT SIDEBAR THÔNG TIN -->
+            <div class="sidebar-col">
+                <div class="info-panel" id="dynamic-panel">
+                    <h3>Thông tin chi tiết</h3>
+                    <p id="panel-content" style="color: #666; font-style: italic;">
+                        Di chuột vào một bài báo bất kỳ bên trái để xem thêm thông tin chi tiết tại đây.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: Xử lý hiệu ứng Hover -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsItems = document.querySelectorAll('.news-item');
+            const panelContent = document.getElementById('panel-content');
+            const defaultText = "Di chuột vào một bài báo bất kỳ bên trái để xem thêm thông tin chi tiết tại đây.";
+
+            newsItems.forEach(item => {
+                // Khi chuột lướt vào bài báo
+                item.addEventListener('mouseenter', function() {
+                    const extraInfo = this.getAttribute('data-extra');
+                    if (extraInfo) {
+                        panelContent.innerHTML = extraInfo;
+                        panelContent.style.fontStyle = 'normal';
+                        panelContent.style.color = '#333';
+                    }
+                });
+
+                // Khi chuột rời khỏi bài báo
+                item.addEventListener('mouseleave', function() {
+                    panelContent.innerHTML = defaultText;
+                    panelContent.style.fontStyle = 'italic';
+                    panelContent.style.color = '#666';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
