@@ -154,6 +154,61 @@
             color: #333;
         }
 
+        /* ----- CSS CHO FOOTER ----- */
+        footer {
+            background-color: #f4f4f4;
+            border-top: 3px solid #9f224e;
+            margin-top: 50px;
+            padding: 40px 0 20px;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-info h2 {
+            color: #9f224e;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer-info p {
+            font-size: 13px;
+            color: #555;
+            max-width: 300px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+        .footer-links div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-links h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .footer-links a {
+            font-size: 13px;
+            color: #666;
+        }
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 30px auto 0;
+            padding: 20px 15px 0;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+
         /* CSS Responsive cho Điện thoại & Máy tính bảng */
         @media (max-width: 800px) {
             .main-content {
@@ -174,6 +229,17 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-info p {
+                max-width: 100%;
             }
         }
     </style>
@@ -249,7 +315,38 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- Kết thúc phần .container -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h2>NEWS</h2>
+                <p>Báo tiếng Việt nhiều người xem nhất. Cập nhật tin tức nhanh chóng, chính xác và đa chiều.</p>
+                <p style="margin-top: 10px;"><strong>Liên hệ:</strong> toasoan@news.com</p>
+                <p><strong>Hotline:</strong> 0123 456 789</p>
+            </div>
+            
+            <div class="footer-links">
+                <div>
+                    <h4>Về chúng tôi</h4>
+                    <a href="#">Giới thiệu</a>
+                    <a href="#">Tuyển dụng</a>
+                    <a href="#">Liên hệ quảng cáo</a>
+                </div>
+                <div>
+                    <h4>Chính sách & Quy định</h4>
+                    <a href="#">Điều khoản sử dụng</a>
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Bản quyền</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tòa soạn báo NEWS. Giấy phép hoạt động báo chí điện tử số: 123/GP-BTTTT.</p>
+        </div>
+    </footer>
 
     <!-- JAVASCRIPT: Xử lý hiệu ứng Hover -->
     <script>
